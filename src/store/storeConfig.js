@@ -8,6 +8,7 @@ import rootReducer from "./reducers";
 const configStore = preloadeState => {
   
   const middlewire = [thunk];
+  // Feature - Spread operator: Easiest & clearnest to expand arguments in one place
   const middlewireEnhancer = applyMiddleware(...middlewire);
   const storeEnhancer = [middlewireEnhancer];
   const composedEnhancer = composeWithDevTools(...storeEnhancer);
