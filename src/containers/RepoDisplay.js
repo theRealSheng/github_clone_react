@@ -7,7 +7,7 @@ const RepoDisplay = ({
     selectedRepo,
     repos,
     onRepoSelect,
-    onclearSelectedRepo,
+    onClickReturn,
     onSearchTerm,
     onDisplayAll,
     onDisplayLimited,
@@ -20,7 +20,7 @@ const RepoDisplay = ({
           selectedRepoName={selectedRepoName}
           selectedRepo={selectedRepo}
           displayCommits={displayCommits}
-          onclearSelectedRepo={onclearSelectedRepo} 
+          onClickReturn={onClickReturn} 
           onSearchTerm={onSearchTerm} 
           onDisplayAll={onDisplayAll}
           onDisplayLimited={onDisplayLimited}

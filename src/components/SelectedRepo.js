@@ -22,7 +22,7 @@ class SelectedRepo extends React.Component {
 
   render() {
     const {
-      onclearSelectedRepo,
+      onClickReturn,
       selectedRepo,
       displayCommits,
       selectedRepoName
@@ -48,7 +48,7 @@ class SelectedRepo extends React.Component {
       <div>
         <div className="btn-wrapper">
           <button className="ui negative basic button"
-            onClick={onclearSelectedRepo}>
+            onClick={onClickReturn}>
             Return
           </button>
         </div>

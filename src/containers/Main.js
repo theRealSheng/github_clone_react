@@ -56,7 +56,7 @@ class Main extends React.Component {
       });
   }
 
-  onclearSelectedRepo = () => {
+  onClickReturn = () => {
     this.props.clearSelectedRepo();
     this.setState({
       selectedRepo: null,
@@ -89,7 +89,7 @@ class Main extends React.Component {
         <div className="display">
           <RepoDisplay
             onRepoSelect={this.onRepoSelect}
-            onclearSelectedRepo={this.onclearSelectedRepo}
+            onClickReturn={this.onClickReturn}
             onSearchTerm={this.onSearchTerm}
             onDisplayAll={this.onDisplayAll}
             onDisplayLimited={this.onDisplayLimited}
