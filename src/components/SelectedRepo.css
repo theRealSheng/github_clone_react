@@ -1,0 +1,23 @@
+.btn-wrapper {
+  margin-bottom: 1em;
+}
+
+.search-input {
+  width: 80%;
+  margin: 1em;
+}
+
+.btn-special {
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.single-commit {
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 80%;
+  padding: 1.5em;
+  margin: .5em;
+}
