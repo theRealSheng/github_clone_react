@@ -52,7 +52,7 @@ class Main extends React.Component {
           displayCommits: selectedRepo.slice(0, 20)
         });
 
-        return;
+        this.props.history.push(`/${repoName}`);
       });
   }
 
@@ -63,6 +63,7 @@ class Main extends React.Component {
       selectedRepoLimited: null,
       displayCommits: null,
     });
+    this.props.history.push(`/`);
   }
 
   onDisplayAll = () => {
@@ -85,16 +86,18 @@ class Main extends React.Component {
     return (
       <div className="container">
         <Profile />
-        <RepoDisplay
-          onRepoSelect={this.onRepoSelect}
-          onclearSelectedRepo={this.onclearSelectedRepo}
-          onSearchTerm={this.onSearchTerm}
-          onDisplayAll={this.onDisplayAll}
-          onDisplayLimited={this.onDisplayLimited}
-          repos={repos}
-          selectedRepo={selectedRepo}
-          selectedRepoName={selectedRepoName}
-          displayCommits={displayCommits} />
+        <div className="display">
+          <RepoDisplay
+            onRepoSelect={this.onRepoSelect}
+            onclearSelectedRepo={this.onclearSelectedRepo}
+            onSearchTerm={this.onSearchTerm}
+            onDisplayAll={this.onDisplayAll}
+            onDisplayLimited={this.onDisplayLimited}
+            repos={repos}
+            selectedRepo={selectedRepo}
+            selectedRepoName={selectedRepoName}
+            displayCommits={displayCommits} />
+        </div>
       </div>
     );
   }

@@ -7,7 +7,7 @@ const Profile = () => {
       <div>
         <img className="profile-pic"
           alt="theRealSheng"
-          src="https://avatars1.githubusercontent.com/u/33520357?v=4" / >
+          src="https://avatars1.githubusercontent.com/u/33520357?v=4" />
       </div>
       <div>
         <h1>theRealSheng</h1>
