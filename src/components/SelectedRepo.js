@@ -2,6 +2,8 @@ import './SelectedRepo.css';
 import React from 'react';
 
 class SelectedRepo extends React.Component {
+  state = { term: '' };
+
   onInputchange = (event) => {
     this.setState({ term: event.target.value })
   }
