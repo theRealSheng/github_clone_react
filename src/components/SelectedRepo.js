@@ -58,7 +58,7 @@ class SelectedRepo extends React.Component {
             Displaying: {displayShowingCommits} commits 
             <i className="chart line icon green large" />
             {
-              selectedRepo.length < 20? '' :
+              selectedRepo.length <= 20? '' :
               displayCommits.length !== selectedRepo.length?
               <button className="btn-special" onClick={this.onDisplayAll}>
                 See all
