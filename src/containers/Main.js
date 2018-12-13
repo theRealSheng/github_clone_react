@@ -45,11 +45,13 @@ class Main extends React.Component {
     this.props.fetchRepo(repoName)
       .then(() => {
         const { selectedRepo } = this.props;
+        const limited = selectedRepo.slice(0, 20);
+
         this.setState({
           selectedRepoName: repoName,
           selectedRepo: selectedRepo,
-          selectedRepoLimited: selectedRepo.slice(0, 20),
-          displayCommits: selectedRepo.slice(0, 20)
+          selectedRepoLimited: limited,
+          displayCommits: limited
         });
 
         this.props.history.push(`/${repoName}`);
