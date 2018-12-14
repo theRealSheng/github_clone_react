@@ -17,7 +17,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/:repoName" component={Main} />
+          <Route path="/:repoName" exact component={Main} />
           <Route path="/" exact component={Main} />
         </Switch>
       </div>
