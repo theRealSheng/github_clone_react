@@ -7,7 +7,7 @@ import {
   fetchRepo,
   clearSelectedRepo
 } from './../store/actions';
-import Profile from './Profile';
+import Profile from './../components/Profile';
 import RepoDisplay from './RepoDisplay';
 
 class Main extends React.Component {
