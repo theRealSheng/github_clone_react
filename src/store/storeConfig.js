@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 
 import rootReducer from "./reducers";
 
-
 const configStore = preloadeState => {
   
   const middlewire = [thunk];
@@ -17,4 +16,5 @@ const configStore = preloadeState => {
 
   return store;
 };
+
 export default configStore;

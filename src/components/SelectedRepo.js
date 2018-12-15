@@ -30,8 +30,6 @@ class SelectedRepo extends React.Component {
       selectedRepoName
     } = this.props;
 
-    const displayShowingCommits = `${displayCommits.length} of ${selectedRepo.length}`;
-  
     const comments = displayCommits.map((item, index) => {
       const { message } = item.commit;
       const { date } = item.commit.committer;
@@ -45,6 +43,8 @@ class SelectedRepo extends React.Component {
         </div>
       );
     })
+
+    const displayShowingCommits = `${displayCommits.length} of ${selectedRepo.length}`;
 
     return (
       <div>
