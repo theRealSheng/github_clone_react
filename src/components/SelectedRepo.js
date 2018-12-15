@@ -49,7 +49,8 @@ class SelectedRepo extends React.Component {
     return (
       <div>
         <div className="btn-wrapper">
-          <button className="ui negative basic button"
+          <button 
+            className="ui negative basic button"
             onClick={onClickReturn}>
             Return
           </button>
@@ -62,10 +63,14 @@ class SelectedRepo extends React.Component {
             {
               selectedRepo.length <= 20? '' :
               displayCommits.length !== selectedRepo.length?
-              <button className="btn-special" onClick={this.onDisplayAll}>
+              <button 
+                className="btn-special" 
+                onClick={this.onDisplayAll}>
                 See all
               </button> :
-              <button className="btn-special" onClick={this.onDisplayLimited}>
+              <button 
+                className="btn-special" 
+                onClick={this.onDisplayLimited}>
                 See last 20
               </button>
             }
@@ -74,7 +79,8 @@ class SelectedRepo extends React.Component {
         
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="ui icon input search-input">
-            <input type = "text"
+            <input 
+              type = "text"
               placeholder = "Search text in commit"
               onChange={e => this.onInputchange(e)} />
             <i className="search icon" />
