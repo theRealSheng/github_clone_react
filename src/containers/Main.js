@@ -16,13 +16,15 @@ class Main extends React.Component {
     selectedRepoName: null,
     selectedRepo: null,
     selectedRepoLimited: null,
-    displayCommits: null
+    displayCommits: null,
+    error: null
   }
 
   componentDidMount() {
     this.props.fetchUser()
       .then(() => {
-        this.setState({ repos: this.props.repos });
+        const  { repos, error } = this.props;
+        this.setState({ repos, error });
       });
   };
 
@@ -43,18 +45,22 @@ class Main extends React.Component {
 
   onRepoSelect = (repoName) => {
     this.props.fetchRepo(repoName)
-      .then(() => {
-        const { selectedRepo } = this.props;
-        const limited = selectedRepo.slice(0, 20);
-
-        this.setState({
-          selectedRepoName: repoName,
-          selectedRepo: selectedRepo,
-          selectedRepoLimited: limited,
-          displayCommits: limited
-        });
-
-        this.props.history.push(`/${repoName}`);
+      .then((repos) => {
+        if(!repos) {
+          this.setState({ error: this.props.error })
+        } else {
+          const { selectedRepo } = this.props;
+          const limited = selectedRepo.slice(0, 20);
+  
+          this.setState({
+            selectedRepoName: repoName,
+            selectedRepo: selectedRepo,
+            selectedRepoLimited: limited,
+            displayCommits: limited
+          });
+  
+          this.props.history.push(`/${repoName}`);
+        }
       });
   }
 
@@ -75,6 +81,14 @@ class Main extends React.Component {
   onDisplayLimited = () => {
     this.setState({ displayCommits: this.state.selectedRepoLimited });
   }
+
+  onReloadRepo = () => {
+    this.props.fetchUser()
+        .then(() => {
+          const  { repos, error } = this.props;
+          this.setState({ repos, error });
+        });
+  }
   
   render() {
   // Feature - Destructuring: Cleaner code & Less typing.
@@ -82,7 +96,8 @@ class Main extends React.Component {
       repos,
       displayCommits,
       selectedRepo,
-      selectedRepoName
+      selectedRepoName,
+      error
     } = this.state;
 
     return (
@@ -95,6 +110,8 @@ class Main extends React.Component {
             onSearchTerm={this.onSearchTerm}
             onDisplayAll={this.onDisplayAll}
             onDisplayLimited={this.onDisplayLimited}
+            onReloadRepo={this.onReloadRepo}
+            error={error}
             repos={repos}
             selectedRepo={selectedRepo}
             selectedRepoName={selectedRepoName}
@@ -108,7 +125,8 @@ class Main extends React.Component {
 const mapStateToProps = (state) => {
   return { 
     repos: state.repos,
-    selectedRepo: state.selectedRepo
+    selectedRepo: state.selectedRepo,
+    error: state.error
   };
 };
 

@@ -11,8 +11,27 @@ const RepoDisplay = ({
     onSearchTerm,
     onDisplayAll,
     onDisplayLimited,
-    selectedRepoName
+    selectedRepoName,
+    error,
+    onReloadRepo
   }) => {
+
+  const onClickReloadRepo = () => {
+    onReloadRepo()
+  }
+
+  if (error) {
+    return (
+      <div>
+        There was an error loading, please 
+        <button 
+          onClick={() => onClickReloadRepo()}>
+          try again
+        </button>
+      </div>
+    );
+  }
+
   if (displayCommits) {
     return (
       <div>
